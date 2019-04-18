@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+#
+# tervitusskript
+User=$USER
+echo -n "Tere, "
+echo -n $User
+echo "!"
+
+#
+#end
