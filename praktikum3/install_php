@@ -6,8 +6,9 @@ if [ $php -eq 0 ] # kui ei ole, siis paigaldab asjad
 then
 	echo "PHP paigaldus"
 	apt install -y dirmngr
-	apt install ca-certificates apt-transport-https lsb-release -y
-	apt --force-yes install software-properties-common -y
+	apt install ca-certificates lsb-release -y
+	apt --force-yes install apt-transport-https --allow-unauthenticated -y
+	apt --force-yes install software-properties-common --allow-unauthenticated -y
 	echo "deb https://packages.sury.org/php/ jessie main" > /etc/apt/sources.list.d/php.list
 	add-apt-repository ppa:ondrej/php -y
 	apt-key update
