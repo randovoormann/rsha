@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 clear
 echo "============================================"
 echo "WordPessi paigaldus skript"
@@ -18,7 +18,7 @@ echo "============================================"
 echo "WordPressi paigaldatakse."
 echo "============================================"
 # laeb alla ja pakib lahti wordpressi"
-cd /tmp
+cd /var/www/html
 wget https://wordpress.org/latest.tar.gz
 tar -zxvf latest.tar.gz
 
@@ -33,7 +33,7 @@ perl -pi -e "s/password_here/$dbpass/g" wp-config.php
 
 mkdir wp-content/uploads
 chmod 775 wp-content/uploads
-cp ./* /var/www/html/wordpress
+chmod 775 ../*
 echo "Üleliigsete asjade kustutamine"
 rm latest.tar.gz
 echo "========================="
