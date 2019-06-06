@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+./apache_install
+
+./install_php
+
+./phpmyadmin_install
+
+./wordpress_install
