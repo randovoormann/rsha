@@ -1,18 +1,19 @@
 #!/bin/bash
 
-
+#kui skripti järel ei ole kasutajanime, siis näitab, kuidas skript käivitada
 if [ $# -ne 1 ]; then
 	echo "Kasutusjuhend: $0 kasutajanimi"
-else
+else		# kui nimi on olemas, siis teeb selle nimega kasutaja kasutades parooli qwerty
+		# teeb sellele kasutajale kausta ning sinna public kasuta ning määrab vastavad õigused- 
 	kasutajanimi=$1
 	useradd $kasutajanimi -d /home/$kasutajanimi/ -s /bin/bash -p qwerty
 	mkdir -p /home/$kasutajanimi/public && chown -R $kasutajanimi:$kasutajanimi /home/$kasutajanimi/public && chmod 751 /home/$kasutajanimi/public
 
-	if [ $? -eq 0 ]; then
+	if [ $? -eq 0 ]; then 	#kui viga ei ole, siis väljastab selle
 		echo "kasutaja nimega $kasutajanimi kodukaustas kaust nimega public loodud"
-		cat /etc/passwd | grep $kasutajanimi
+		cat /etc/passwd | grep $kasutajanimi #kas etc/passwd failis on kasutaja olemas
 	else
-		echo "probleem kasutaja $kasutajanimi lisamisega"
+		echo "probleem kasutaja $kasutajanimi lisamisega" #väljastab selle, et kasutajaga on probleem"
 		echo "probleemi kood on $?"
 	fi
 fi
