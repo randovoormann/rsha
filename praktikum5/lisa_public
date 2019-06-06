@@ -3,7 +3,7 @@
 #kui skripti järel ei ole kasutajanime, siis näitab, kuidas skript käivitada
 if [ $# -ne 1 ]; then
 	echo "Kasutusjuhend: $0 kasutajanimi"
-else		# kui nimi on olemas, siis teeb selle nimega kasutaja kasutades parooli qwerty
+else		# kui kasutajat juba pole ja nimi on sisestatud, siis teeb selle nimega kasutaja kasutades parooli qwerty
 		# teeb sellele kasutajale kausta ning sinna public kasuta ning määrab vastavad õigused- 
 	kasutajanimi=$1
 	useradd $kasutajanimi -d /home/$kasutajanimi/ -s /bin/bash -p qwerty
