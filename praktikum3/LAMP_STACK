@@ -2,7 +2,7 @@
 
 
 ./apache_install
-
+./mysql_install
 ./install_php
 
 ./phpmyadmin_install
